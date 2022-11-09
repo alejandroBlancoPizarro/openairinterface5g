@@ -2296,6 +2296,7 @@ rrc_ue_decode_dcch(
   uint8_t target_eNB_index=0xFF;
   MessageDef *msg_p;
 
+  LOG_I(RRC, "Alex inside rrc_ue_decode_dcch\n");
   if (Srb_id != 1) {
     LOG_E(RRC,"[UE %d] Frame %d: Received message on DL-DCCH (SRB%ld), should not have ...\n",
           ctxt_pP->module_id, ctxt_pP->frame, Srb_id);
@@ -5073,7 +5074,7 @@ void *rrc_ue_task( void *args_p ) {
               RRC_DCCH_DATA_IND (msg_p).frame,
               RRC_DCCH_DATA_IND (msg_p).dcch_index,
               RRC_DCCH_DATA_IND (msg_p).eNB_index);
-        LOG_D(RRC, PROTOCOL_RRC_CTXT_UE_FMT"Received %s DCCH %d, eNB %d\n",
+        LOG_D(RRC, PROTOCOL_RRC_CTXT_UE_FMT"Alex Received %s DCCH %d, eNB %d\n",
               PROTOCOL_RRC_CTXT_UE_ARGS(&ctxt),
               ITTI_MSG_NAME (msg_p),
               RRC_DCCH_DATA_IND (msg_p).dcch_index,
