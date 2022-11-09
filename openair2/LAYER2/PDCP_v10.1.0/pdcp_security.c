@@ -233,7 +233,7 @@ pdcp_validate_security(
         LOG_E(PDCP, "[OSA][RB %ld] %s failed to validate MAC-I (key %llx) of incoming PDU\n",
               rb_id, (pdcp_pP->is_ue != 0) ? "UE" : "eNB",((long long unsigned int*)decrypt_params.key)[0]);
         VCD_SIGNAL_DUMPER_DUMP_FUNCTION_BY_NAME(VCD_SIGNAL_DUMPER_FUNCTIONS_PDCP_VALIDATE_SECURITY, VCD_FUNCTION_OUT);
-        return 0;
+        return -1;
       }
     }
   } /* !IQPLAYER */
