@@ -6531,7 +6531,7 @@ rrc_rx_tx_ue(
 
     if (UE_rrc_inst[ctxt_pP->module_id].Info[enb_indexP].T304_cnt == 0) {
       UE_rrc_inst[ctxt_pP->module_id].Info[enb_indexP].T304_active = 0;
-      if (UE_rrc_inst[ctxt_pP->module_id].Info[enb_indexP].State == RRC_IDLE) {
+      if (UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State == RRC_IDLE) {
         UE_rrc_inst[ctxt_pP->module_id].HandoverInfoUe.measFlag = 0;
         return (RRC_OK);
       }
