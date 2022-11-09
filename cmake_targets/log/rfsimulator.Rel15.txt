@@ -1,0 +1,7 @@
+[  0%] Built target generate_T
+[  0%] Built target SIMU_COMMON
+Scanning dependencies of target rfsimulator
+[100%] Building C object CMakeFiles/rfsimulator.dir/users/alexbp/openairinterface5g/targets/ARCH/rfsimulator/simulator.c.o
+[100%] Building C object CMakeFiles/rfsimulator.dir/users/alexbp/openairinterface5g/targets/ARCH/rfsimulator/apply_channelmod.c.o
+[100%] Linking C shared module librfsimulator.so
+[100%] Built target rfsimulator

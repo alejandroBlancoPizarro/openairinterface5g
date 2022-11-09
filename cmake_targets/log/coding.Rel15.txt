@@ -1,0 +1,5 @@
+[  0%] Built target generate_T
+Scanning dependencies of target coding
+[  0%] Building C object CMakeFiles/coding.dir/users/alexbp/openairinterface5g/openair1/PHY/CODING/3gpplte_turbo_decoder_sse_8bit.c.o
+[  0%] Linking C shared module libcoding.so
+[100%] Built target coding

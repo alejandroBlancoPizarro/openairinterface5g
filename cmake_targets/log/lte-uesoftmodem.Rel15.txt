@@ -1,0 +1,84 @@
+[  0%] Built target x2_flag
+[  0%] Built target rrc_flag
+[  0%] Built target m2_flag
+[  0%] Built target s1ap_flag
+[  0%] Built target CONFIG_LIB
+[  0%] Built target nr_rrc_flag
+[  0%] Built target m3_flag
+[  0%] Built target generate_T
+[  0%] Built target MISC_NFAPI_LTE_LIB
+[  0%] Built target NFAPI_COMMON_LIB
+[  0%] Built target dfts
+[  1%] Built target SECU_OSA
+[  1%] Built target HASHTABLE
+[  1%] Built target SECU_CN
+[  1%] Built target NFAPI_LIB
+[  2%] Built target LFDS7
+[  2%] Built target FLPT_MSG
+[  2%] Built target ITTI
+[  2%] Built target PHY_RU
+[  2%] Built target SCTP_CLIENT
+[  2%] Built target NFAPI_PNF_LIB
+[  2%] Built target UTIL
+[  2%] Built target L2_LTE
+[  2%] Built target SCHED_RU_LIB
+[  2%] Built target PHY_COMMON
+[  2%] Built target MME_APP
+[  4%] Built target M3AP_LIB
+[  4%] Built target NFAPI_USER_LIB
+[  7%] Built target M2AP_LIB
+Scanning dependencies of target SCHED_UE_LIB
+Scanning dependencies of target SIMU_COMMON
+Scanning dependencies of target SIMU
+[ 19%] Built target S1AP_LIB
+[ 19%] Building C object CMakeFiles/SCHED_UE_LIB.dir/users/alexbp/openairinterface5g/openair1/SCHED_UE/phy_procedures_lte_ue.c.o
+[ 19%] Building C object CMakeFiles/SIMU_COMMON.dir/users/alexbp/openairinterface5g/openair1/SIMULATION/TOOLS/random_channel.c.o
+[ 19%] Building C object CMakeFiles/SIMU.dir/users/alexbp/openairinterface5g/openair1/SIMULATION/TOOLS/channel_sim.c.o
+[ 19%] Built target M3AP_ENB
+[ 23%] Built target LIB_NAS_UE
+[ 35%] Built target X2AP_LIB
+[ 35%] Built target S1AP_ENB
+Scanning dependencies of target PHY_UE
+[ 35%] Building C object CMakeFiles/PHY_UE.dir/users/alexbp/openairinterface5g/openair1/PHY/LTE_UE_TRANSPORT/prach_ue.c.o
+[ 35%] Building C object CMakeFiles/PHY_UE.dir/users/alexbp/openairinterface5g/openair1/PHY/LTE_UE_TRANSPORT/initial_sync.c.o
+[ 35%] Built target M2AP_ENB
+[ 35%] Built target X2AP_ENB
+[ 59%] Built target NR_RRC_LIB
+Scanning dependencies of target L2_UE
+[ 59%] Linking C static library libPHY_UE.a
+[ 59%] Linking C shared library libSIMU.so
+[ 59%] Built target PHY_UE
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/LAYER2/PDCP_v10.1.0/pdcp.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/LAYER2/PDCP_v10.1.0/pdcp_fifo.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/LAYER2/PDCP_v10.1.0/pdcp_util.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/LAYER2/PDCP_v10.1.0/pdcp_sequence_manager.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/LAYER2/PDCP_v10.1.0/pdcp_primitives.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/LAYER2/PDCP_v10.1.0/pdcp_security.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/RRC/LTE/rrc_UE.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/RRC/LTE/rrc_common.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/RRC/LTE/L2_interface_common.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/RRC/LTE/L2_interface_ue.c.o
+[ 59%] Built target SIMU
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/LAYER2/MAC/main_ue.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/PHY_INTERFACE/phy_stub_UE.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/LAYER2/MAC/ue_procedures.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/LAYER2/MAC/ra_procedures.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/LAYER2/MAC/rar_tools_ue.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/LAYER2/MAC/config_ue.c.o
+[ 59%] Building C object CMakeFiles/L2_UE.dir/users/alexbp/openairinterface5g/openair2/LAYER2/MAC/l1_helpers.c.o
+[ 59%] Linking C static library libSIMU_COMMON.a
+[100%] Built target RRC_LIB
+[100%] Built target SIMU_COMMON
+[100%] Linking C static library libSCHED_UE_LIB.a
+[100%] Built target SCHED_UE_LIB
+[100%] Linking C static library libL2_UE.a
+[100%] Built target L2_UE
+Scanning dependencies of target lte-uesoftmodem
+[100%] Building C object CMakeFiles/lte-uesoftmodem.dir/users/alexbp/openairinterface5g/targets/RT/USER/lte-ue.c.o
+[100%] Building C object CMakeFiles/lte-uesoftmodem.dir/users/alexbp/openairinterface5g/targets/RT/USER/lte-uesoftmodem.c.o
+[100%] Building C object CMakeFiles/lte-uesoftmodem.dir/users/alexbp/openairinterface5g/executables/softmodem-common.c.o
+[100%] Building C object CMakeFiles/lte-uesoftmodem.dir/users/alexbp/openairinterface5g/targets/COMMON/create_tasks_ue.c.o
+[100%] Building C object CMakeFiles/lte-uesoftmodem.dir/users/alexbp/openairinterface5g/openair2/RRC/NAS/nas_config.c.o
+[100%] Building C object CMakeFiles/lte-uesoftmodem.dir/users/alexbp/openairinterface5g/openair1/SIMULATION/ETH_TRANSPORT/netlink_init.c.o
+[100%] Linking CXX executable lte-uesoftmodem
+[100%] Built target lte-uesoftmodem

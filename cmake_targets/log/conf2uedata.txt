@@ -1,0 +1,115 @@
+
+UE's non-volatile data:
+
+IMEI		= 356113022094149
+manufacturer	= EURECOM
+model		= LTE Android PC
+PIN		= 0000
+UE identity data file: /users/alexbp/openairinterface5g/targets/bin/.ue.nvram0
+
+EMM non-volatile data:
+
+IMSI		= 208.930.100001111
+RPLMN		= 20893
+EPS Mobility Management data file: /users/alexbp/openairinterface5g/targets/bin/.ue_emm.nvram0
+
+USIM data:
+
+Administrative Data:
+	UE_Operation_Mode	= 0x00
+	Additional_Info		= 0xffff
+	MNC_Length		= 2
+
+IMSI:
+	length	= 8
+	parity	= Odd
+	digits	= 15
+	digits	= 208930100001111
+
+Ciphering and Integrity Keys:
+	KSI	: 0x07
+	CK	: ""
+	IK	: ""
+
+	usim_api_k: 8b af 47 3f 2f 8f d0 94 87 cc cb d7 09 7c 68 62
+	opc       : e7 34 f8 73 40 07 d6 c5 ce 7a 05 08 80 9e 7e 9c
+
+EPS NAS security context:
+	KSIasme	: 0x07
+	Kasme	: ""
+	algorithmID	: 0x02
+
+MSISDN	= 336 1112 3456
+
+PNN[0]	= {Test network, OAI4G}
+PNN[1]	= {SFR France, SFR}
+PNN[2]	= {SFR France, SFR}
+PNN[3]	= {SFR France, SFR}
+PNN[4]	= {OAI LTEBOX, OAIALU}
+PNN[5]	= {T-Mobile USA, T-MobileCFICTITIOUS USA}
+PNN[6]	= {FICTITIOUS USA, FICTITIO}
+PNN[7]	= {, }
+
+OPL[0]	= 00101, TAC = [0001 - fffd], record_id = 0
+OPL[1]	= 20810, TAC = [0001 - fffd], record_id = 1
+OPL[2]	= 20811, TAC = [0001 - fffd], record_id = 2
+OPL[3]	= 20813, TAC = [0001 - fffd], record_id = 3
+OPL[4]	= 20893, TAC = [0001 - fffd], record_id = 4
+OPL[5]	= 310280, TAC = [0001 - fffd], record_id = 5
+OPL[6]	= 310028, TAC = [0001 - fffd], record_id = 6
+OPL[7]	= , TAC = [0000 - 0000], record_id = 0
+
+HPLMN		= 20893, AcT = 0x80c0
+
+FPLMN[0]	= 
+FPLMN[1]	= 
+FPLMN[2]	= 
+FPLMN[3]	= 
+
+EHPLMN[0]	= 
+EHPLMN[1]	= 
+
+PLMN[0]		= , AcTPLMN = 0x0
+PLMN[1]		= , AcTPLMN = 0x0
+PLMN[2]		= , AcTPLMN = 0x0
+PLMN[3]		= , AcTPLMN = 0x0
+PLMN[4]		= , AcTPLMN = 0x0
+PLMN[5]		= , AcTPLMN = 0x0
+PLMN[6]		= , AcTPLMN = 0x0
+PLMN[7]		= , AcTPLMN = 0x0
+
+OPLMN[0]	= 22210, AcTPLMN = 0x80c0
+OPLMN[1]	= 21401, AcTPLMN = 0x80c0
+OPLMN[2]	= 21406, AcTPLMN = 0x80c0
+OPLMN[3]	= 26202, AcTPLMN = 0x80c0
+OPLMN[4]	= 26204, AcTPLMN = 0x80c0
+OPLMN[5]	= , AcTPLMN = 0x0
+OPLMN[6]	= , AcTPLMN = 0x0
+OPLMN[7]	= , AcTPLMN = 0x0
+
+HPPLMN		= 0x00 (0 minutes)
+
+LOCI:
+	TMSI = 0x000d
+	LAI	: PLMN = 20893, LAC = 0xfffe
+	status	= 1
+
+PSLOCI:
+	P-TMSI = 0x000d
+	signature = 0x1 0x2 0x3
+	RAI	: PLMN = 20893, LAC = 0xfffe, RAC = 0x1
+	status	= 1
+
+EPSLOCI:
+	GUTI	: GUMMEI	: (PLMN = 20893, MMEgid = 0x102, MMEcode = 0xf), M-TMSI = 0x000d
+	TAI	: PLMN = 20893, TAC = 0x01
+	status	= 0
+
+NASCONFIG:
+	NAS_SignallingPriority		: 0x00
+	NMO_I_Behaviour			: 0x00
+	AttachWithImsi			: 0x01
+	MinimumPeriodicSearchTimer	: 0x00
+	ExtendedAccessBarring		: 0x00
+	Timer_T3245_Behaviour		: 0x00
+USIM data file: /users/alexbp/openairinterface5g/targets/bin/.usim.nvram0
