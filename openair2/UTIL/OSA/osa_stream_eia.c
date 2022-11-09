@@ -307,7 +307,7 @@ int stream_check_integrity(uint8_t algorithm, stream_cipher_t *stream_cipher, ui
     }
 
     if (expected[0] == 0 && expected[1] == 0 && expected[2] == 0 && expected[3] == 0){
-      LOG_D(OSA, "integrety is not needed"\n);
+      LOG_D(OSA, "integrety is not needed\n");
       return 0;
     }
       
