@@ -4621,7 +4621,7 @@ void ue_measurement_report_triggering(protocol_ctxt_t *const ctxt_pP, const uint
                 case LTE_ReportConfigEUTRA__triggerType__event__eventId_PR_eventA3:
                   LOG_D(RRC,"[UE %d] Frame %d : A3 event: check if a neighboring cell becomes offset better than serving to trigger a measurement event \n",
                         ctxt_pP->module_id, ctxt_pP->frame);
-                  LOG_D(RRC,"Alex: ue->Info[0].State %d, ue->Info[1].State %d current_enb %d, ue->HandoverInfoUe.measFlag %d, ue->Info[current_enb].T304_active %d \n", ue->Info[0].State, ue->Info[1].State,current_enb, ue->HandoverInfoUe.measFlag, ue->Info[current_enb].T304_active);
+                  LOG_D(RRC,"Alex: ue->Info[0].State %d, ue->Info[1].State %d current_enb %d, ue->HandoverInfoUe.measFlag %d, ue->Info[current_enb].T304_active %d, counter %d \n", ue->Info[0].State, ue->Info[1].State,current_enb, ue->HandoverInfoUe.measFlag, ue->Info[current_enb].T304_active, counter);
                   if ((check_trigger_meas_event(
                          ctxt_pP->module_id,
                          ctxt_pP->frame,
@@ -4629,7 +4629,8 @@ void ue_measurement_report_triggering(protocol_ctxt_t *const ctxt_pP, const uint
                          i,j,ofn,ocn,hys,ofs,ocs,a3_offset,ttt_ms)) &&
                       (ue->Info[current_enb].State >= RRC_CONNECTED) &&
                       (ue->Info[current_enb].T304_active == 0 )      &&
-                      (ue->HandoverInfoUe.measFlag == 1)) {
+                      (ue->HandoverInfoUe.measFlag == 1)              &&
+                      counter > 1000) {
                     //trigger measurement reporting procedure (36.331, section 5.5.5)
                     if (ue->measReportList[i][j] == NULL) {
                       ue->measReportList[i][j] = malloc(sizeof(MEAS_REPORT_LIST));
