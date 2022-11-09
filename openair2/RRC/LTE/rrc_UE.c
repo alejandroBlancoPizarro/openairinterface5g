@@ -98,6 +98,7 @@ static int to_nr_ue_fd = -1;
 int slrb_id;
 int send_ue_information = 0;
 int current_enb = 0;
+int counter = 0;
 // for malloc_clear
 #include "PHY/defs_UE.h"
 
@@ -2406,6 +2407,7 @@ rrc_ue_decode_dcch(
             UE_rrc_inst[ctxt_pP->module_id].Info[eNB_indexP].State = RRC_HO_EXECUTION;
             UE_rrc_inst[ctxt_pP->module_id].Info[target_eNB_index].State = RRC_RECONFIGURED;
             current_enb = target_eNB_index;
+            counter = 0;
             LOG_I(RRC, "[UE %d] State = RRC_RECONFIGURED during HO (eNB %d)\n",
                   ctxt_pP->module_id, target_eNB_index);
 #if ENABLE_RAL
@@ -6550,8 +6552,9 @@ rrc_rx_tx_ue(
   if (UE_rrc_inst[ctxt_pP->module_id].QuantityConfig[0] != NULL) {
     ue_meas_filtering(ctxt_pP,enb_indexP);
   }
-
-  ue_measurement_report_triggering(ctxt_pP,enb_indexP);
+  counter = counter + 1;
+  if (counter > 100)
+    ue_measurement_report_triggering(ctxt_pP,enb_indexP);
 
   if (UE_rrc_inst[ctxt_pP->module_id].Info[0].handoverTarget > 0) {
     LOG_I(RRC,"[UE %d] Frame %d : RRC handover initiated\n", ctxt_pP->module_id, ctxt_pP->frame);
