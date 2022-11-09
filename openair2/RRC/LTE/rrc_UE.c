@@ -6553,8 +6553,8 @@ rrc_rx_tx_ue(
     ue_meas_filtering(ctxt_pP,enb_indexP);
   }
   counter = counter + 1;
-  if (counter > 500)
-    ue_measurement_report_triggering(ctxt_pP,enb_indexP);
+  //if (counter > 1000)
+  ue_measurement_report_triggering(ctxt_pP,enb_indexP);
 
   if (UE_rrc_inst[ctxt_pP->module_id].Info[0].handoverTarget > 0) {
     LOG_I(RRC,"[UE %d] Frame %d : RRC handover initiated\n", ctxt_pP->module_id, ctxt_pP->frame);
