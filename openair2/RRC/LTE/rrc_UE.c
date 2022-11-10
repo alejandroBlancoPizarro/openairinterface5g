@@ -2409,8 +2409,8 @@ rrc_ue_decode_dcch(
             UE_rrc_inst[ctxt_pP->module_id].Info[target_eNB_index].State = RRC_RECONFIGURED;
             current_enb = target_eNB_index;
             counter = 0;
-            LOG_I(RRC, "[UE %d] State = RRC_RECONFIGURED during HO (eNB %d), current enb %d, eNB_indexP %d\n",
-                  ctxt_pP->module_id, target_eNB_index, current_enb, eNB_indexP);
+            LOG_I(RRC, "[UE %d] State = RRC_RECONFIGURED during HO (eNB %d)\n",
+                  ctxt_pP->module_id, target_eNB_index);
 #if ENABLE_RAL
             {
               MessageDef                                 *message_ral_p = NULL;
