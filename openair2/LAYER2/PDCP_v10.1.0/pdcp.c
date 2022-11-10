@@ -503,7 +503,7 @@ bool pdcp_data_req(protocol_ctxt_t  *ctxt_pP,
         ret = false;
         switch (rlc_status) {
           case RLC_OP_STATUS_OK:
-            LOG_D(PDCP, "Data sending request over RLC succeeded!\n");
+            LOG_D(PDCP, "Alex Data sending request over RLC succeeded!\n");
             ret=true;
             break;
 
