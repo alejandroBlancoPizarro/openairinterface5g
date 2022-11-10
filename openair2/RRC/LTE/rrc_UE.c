@@ -2405,12 +2405,12 @@ rrc_ue_decode_dcch(
               target_eNB_index,
               dl_dcch_msg->message.choice.c1.choice.rrcConnectionReconfiguration.rrc_TransactionIdentifier,
               NULL);
-            UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State = RRC_HO_EXECUTION;
+            UE_rrc_inst[ctxt_pP->module_id].Info[eNB_indexP].State = RRC_HO_EXECUTION;
             UE_rrc_inst[ctxt_pP->module_id].Info[target_eNB_index].State = RRC_RECONFIGURED;
             current_enb = target_eNB_index;
             counter = 0;
-            LOG_I(RRC, "[UE %d] State = RRC_RECONFIGURED during HO (eNB %d) current_enb %d \n",
-                  ctxt_pP->module_id, target_eNB_index);
+            LOG_I(RRC, "[UE %d] State = RRC_RECONFIGURED during HO (eNB %d), current enb %d, eNB_indexP %d\n",
+                  ctxt_pP->module_id, target_eNB_index, current_enb, eNB_indexP);
 #if ENABLE_RAL
             {
               MessageDef                                 *message_ral_p = NULL;
@@ -6562,9 +6562,9 @@ rrc_rx_tx_ue(
     LOG_I(RRC,"[UE %d] Frame %d : RRC handover initiated\n", ctxt_pP->module_id, ctxt_pP->frame);
   }
 
-  if((UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State == RRC_HO_EXECUTION)   &&
+  if((UE_rrc_inst[ctxt_pP->module_id].Info[enb_indexP].State == RRC_HO_EXECUTION)   &&
       (UE_rrc_inst[ctxt_pP->module_id].HandoverInfoUe.targetCellId != 0xFF)) {
-    UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State= RRC_IDLE;
+    UE_rrc_inst[ctxt_pP->module_id].Info[enb_indexP].State= RRC_IDLE;
     VCD_SIGNAL_DUMPER_DUMP_FUNCTION_BY_NAME(VCD_SIGNAL_DUMPER_FUNCTIONS_RRC_RX_TX,VCD_FUNCTION_OUT);
     return(RRC_HO_STARTED);
   }
