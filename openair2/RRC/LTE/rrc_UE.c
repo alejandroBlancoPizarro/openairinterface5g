@@ -2321,7 +2321,7 @@ rrc_ue_decode_dcch(
   }
 
   if (dl_dcch_msg->message.present == LTE_DL_DCCH_MessageType_PR_c1) {
-    if (UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State >= RRC_CONNECTED) {
+    if (UE_rrc_inst[ctxt_pP->module_id].Info[eNB_indexP].State >= RRC_CONNECTED) {
       switch (dl_dcch_msg->message.choice.c1.present) {
         case LTE_DL_DCCH_MessageType__c1_PR_NOTHING:
           LOG_I(RRC, "[UE %d] Frame %d : Received PR_NOTHING on DL-DCCH-Message\n",
