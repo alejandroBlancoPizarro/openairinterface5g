@@ -1158,7 +1158,7 @@ static void *UE_phy_stub_standalone_pnf_task(void *arg) {
           LOG_E(PHY, "[UE %" PRIu8 "] Frame %" PRIu32 ", subframe %u %s\n",
                 UE->Mod_id, rx_frame, NFAPI_SFNSF2SF(sfn_sf), get_connectionloss_errstr(ret));
         }
-        if (ret == RRC_HO_STARTED) {
+        if (ret == PHY_HO_PRACH) {
           LOG_D(PHY, "We have to do the PRACH reconfig parameters\n");
           UE_mac_inst[ue_Mod_id].SI_Decoded = 1;
           next_ra_frame = 500;
