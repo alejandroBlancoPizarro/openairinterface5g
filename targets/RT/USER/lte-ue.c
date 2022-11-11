@@ -1183,7 +1183,7 @@ static void *UE_phy_stub_standalone_pnf_task(void *arg) {
 
           if (next_ra_frame > 500) {
             // check if we have PRACH opportunity
-            LOG_D(MAC, "we are outside is_prach_subframe \n");
+            LOG_D(MAC, "we are outside is_prach_subframe UE_mac_inst[ue_Mod_id].SI_Decoded %d \n", UE_mac_inst[ue_Mod_id].SI_Decoded);
 
             if (is_prach_subframe(&UE->frame_parms, NFAPI_SFNSF2SFN(sfn_sf), NFAPI_SFNSF2SF(sfn_sf)) && UE_mac_inst[ue_Mod_id].SI_Decoded == 1) {
                 LOG_D(MAC, "we are in is_prach_subframe \n");
