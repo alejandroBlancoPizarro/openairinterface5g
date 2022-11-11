@@ -2405,7 +2405,7 @@ rrc_ue_decode_dcch(
               target_eNB_index,
               dl_dcch_msg->message.choice.c1.choice.rrcConnectionReconfiguration.rrc_TransactionIdentifier,
               NULL);
-            UE_rrc_inst[ctxt_pP->module_id].Info[eNB_indexP].State = RRC_HO_EXECUTION;
+            UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State = RRC_HO_EXECUTION;
             UE_rrc_inst[ctxt_pP->module_id].Info[target_eNB_index].State = RRC_RECONFIGURED;
 
             LOG_I(RRC, "[UE %d] State = RRC_RECONFIGURED during HO (eNB %d), current_enb %d\n",
