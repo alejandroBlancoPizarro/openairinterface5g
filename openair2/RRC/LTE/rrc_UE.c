@@ -99,6 +99,7 @@ int slrb_id;
 int send_ue_information = 0;
 int current_enb = 0;
 int counter = 0;
+uint8_t target_eNB_index=0xFF;
 // for malloc_clear
 #include "PHY/defs_UE.h"
 
@@ -2293,7 +2294,7 @@ rrc_ue_decode_dcch(
   LTE_DL_DCCH_Message_t *dl_dcch_msg=NULL;//&dldcchmsg;
   //  asn_dec_rval_t dec_rval;
   // int i;
-  uint8_t target_eNB_index=0xFF;
+  
   MessageDef *msg_p;
 
   LOG_I(RRC, "Alex inside rrc_ue_decode_dcch\n");
