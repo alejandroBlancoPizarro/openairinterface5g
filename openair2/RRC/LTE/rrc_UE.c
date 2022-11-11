@@ -6562,10 +6562,10 @@ rrc_rx_tx_ue(
   if (UE_rrc_inst[ctxt_pP->module_id].Info[0].handoverTarget > 0) {
     LOG_I(RRC,"[UE %d] Frame %d : RRC handover initiated\n", ctxt_pP->module_id, ctxt_pP->frame);
   }
-  LOG_I(RRC,"Alex we are to get inside the if the if current_enb %d\n", current_enb);
+  LOG_I(RRC,"Alex we are to get inside the if the if current_enb %d, target_eNB_index %d\n", current_enb, target_eNB_index);
   if((UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State == RRC_HO_EXECUTION)   &&
       (UE_rrc_inst[ctxt_pP->module_id].HandoverInfoUe.targetCellId != 0xFF)) {
-    LOG_I(RRC,"Alex we are in the if current_enb %d\n", current_enb);
+    LOG_I(RRC,"Alex we are in the if current_enb %d, target_eNB_index %d\n", current_enb, target_eNB_index);
     UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State= RRC_IDLE;
     current_enb = target_eNB_index;
     counter = 0;
