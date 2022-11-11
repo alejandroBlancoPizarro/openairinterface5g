@@ -1179,6 +1179,7 @@ static void *UE_phy_stub_standalone_pnf_task(void *arg) {
         if (UE_mac_inst[ue_Mod_id].UE_mode[0] == PRACH) {
           //&& ue_Mod_id == next_Mod_id) {
           next_ra_frame++;
+          LOG_D(MAC, "UE_mode 2: %d next_ra_frame %d\n", UE_mac_inst[ue_Mod_id].UE_mode[0], next_ra_frame);
 
           if (next_ra_frame > 500) {
             // check if we have PRACH opportunity
