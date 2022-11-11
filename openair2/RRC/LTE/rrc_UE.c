@@ -2410,8 +2410,7 @@ rrc_ue_decode_dcch(
 
             LOG_I(RRC, "[UE %d] State = RRC_RECONFIGURED during HO (eNB %d), current_enb %d\n",
                   ctxt_pP->module_id, target_eNB_index, current_enb);
-            current_enb = target_eNB_index;
-            counter = 0;
+
 #if ENABLE_RAL
             {
               MessageDef                                 *message_ral_p = NULL;
@@ -6562,10 +6561,13 @@ rrc_rx_tx_ue(
   if (UE_rrc_inst[ctxt_pP->module_id].Info[0].handoverTarget > 0) {
     LOG_I(RRC,"[UE %d] Frame %d : RRC handover initiated\n", ctxt_pP->module_id, ctxt_pP->frame);
   }
-
+  LOG_I(RRC,"Alex we are to get inside the if the if current_enb %d\n", current_enb);
   if((UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State == RRC_HO_EXECUTION)   &&
       (UE_rrc_inst[ctxt_pP->module_id].HandoverInfoUe.targetCellId != 0xFF)) {
+    LOG_I(RRC,"Alex we are in the if current_enb %d\n", current_enb);
     UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State= RRC_IDLE;
+    current_enb = target_eNB_index;
+    counter = 0;
     VCD_SIGNAL_DUMPER_DUMP_FUNCTION_BY_NAME(VCD_SIGNAL_DUMPER_FUNCTIONS_RRC_RX_TX,VCD_FUNCTION_OUT);
     return(RRC_HO_STARTED);
   }
