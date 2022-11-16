@@ -4632,7 +4632,7 @@ void ue_measurement_report_triggering(protocol_ctxt_t *const ctxt_pP, const uint
                       (ue->Info[current_enb].State >= RRC_CONNECTED) &&
                       (ue->Info[current_enb].T304_active == 0 )      &&
                       (ue->HandoverInfoUe.measFlag == 1)              &&
-                      counter > 1000) {
+                      counter > 5000) {
                     //trigger measurement reporting procedure (36.331, section 5.5.5)
                     if (ue->measReportList[i][j] == NULL) {
                       ue->measReportList[i][j] = malloc(sizeof(MEAS_REPORT_LIST));
