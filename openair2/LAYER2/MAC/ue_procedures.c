@@ -435,7 +435,10 @@ ue_send_sdu(module_id_t module_idP,
             //Note: 3 assumes sizeof(SCH_SUBHEADER_SHORT) + PADDING CE, which is when UL-Grant has TBS >= 9 (64 bits)
             // (other possibility is 1 for TBS=7 (SCH_SUBHEADER_FIXED), or 2 for TBS=8 (SCH_SUBHEADER_FIXED+PADDING or SCH_SUBHEADER_SHORT)
             for (i = 0; i < 6; i++)
-              if (tx_sdu[i] != payload_ptr[i]) {
+            //Alex
+              //if (tx_sdu[i] != payload_ptr[i]) {
+              if (tx_sdu[i] != payload_ptr[i] && (1 == 0)) {
+
                 LOG_E(MAC,
                       "[UE %d][RAPROC] Contention detected, RA failed\n",
                       module_idP);
