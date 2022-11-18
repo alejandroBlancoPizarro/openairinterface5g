@@ -903,7 +903,7 @@ int x2ap_eNB_handle_handover_preparation (instance_t instance,
   }
 
   X2AP_DEBUG ("Received a new X2 handover request\n");
-  usleep(500000);
+
   x2ap_eNB_data = x2ap_get_eNB(NULL, assoc_id, 0);
   DevAssert(x2ap_eNB_data != NULL);
 
