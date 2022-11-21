@@ -97,8 +97,8 @@ static int from_nr_ue_fd = -1;
 static int to_nr_ue_fd = -1;
 int slrb_id;
 int send_ue_information = 0;
-int current_enb = 0;
-int counter = 0;
+int current_enb = 0; //Alex
+int counter = 0; //Alex
 uint8_t target_eNB_index=0xFF;
 // for malloc_clear
 #include "PHY/defs_UE.h"
@@ -2322,7 +2322,7 @@ rrc_ue_decode_dcch(
   }
 
   if (dl_dcch_msg->message.present == LTE_DL_DCCH_MessageType_PR_c1) {
-    if (UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State >= RRC_CONNECTED) {
+    if (UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State >= RRC_CONNECTED) { //Alex
       switch (dl_dcch_msg->message.choice.c1.present) {
         case LTE_DL_DCCH_MessageType__c1_PR_NOTHING:
           LOG_I(RRC, "[UE %d] Frame %d : Received PR_NOTHING on DL-DCCH-Message\n",
@@ -2406,9 +2406,9 @@ rrc_ue_decode_dcch(
               target_eNB_index,
               dl_dcch_msg->message.choice.c1.choice.rrcConnectionReconfiguration.rrc_TransactionIdentifier,
               NULL);
-            UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State = RRC_HO_EXECUTION;
-            UE_rrc_inst[ctxt_pP->module_id].Info[target_eNB_index].State = RRC_RECONFIGURED;
-
+            UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State = RRC_HO_EXECUTION; //Alex
+            UE_rrc_inst[ctxt_pP->module_id].Info[target_eNB_index].State = RRC_RECONFIGURED; //Alex
+            //Alex
             LOG_I(RRC, "[UE %d] State = RRC_RECONFIGURED during HO (eNB %d), current_enb %d\n",
                   ctxt_pP->module_id, target_eNB_index, current_enb);
 
@@ -4627,14 +4627,14 @@ void ue_measurement_report_triggering(protocol_ctxt_t *const ctxt_pP, const uint
                   if ((check_trigger_meas_event(
                          ctxt_pP->module_id,
                          ctxt_pP->frame,
-                         current_enb,
+                         current_enb, //Alex
                          i,j,ofn,ocn,hys,ofs,ocs,a3_offset,ttt_ms)) &&
-                      (ue->Info[current_enb].State >= RRC_CONNECTED) &&
-                      (ue->Info[current_enb].T304_active == 0 )      &&
+                      (ue->Info[current_enb].State >= RRC_CONNECTED) &&  //Alex
+                      (ue->Info[current_enb].T304_active == 0 )      && //Alex
                       (ue->HandoverInfoUe.measFlag == 1)              &&
+                      //Alex
                       counter > 5000) {
-                    //trigger measurement reporting procedure (36.331, section 5.5.5)
-                    if (ue->measReportList[i][j] == NULL) {
+                    //trigger measurement reporting procedure 
                       ue->measReportList[i][j] = malloc(sizeof(MEAS_REPORT_LIST));
                     }
 
@@ -4642,7 +4642,7 @@ void ue_measurement_report_triggering(protocol_ctxt_t *const ctxt_pP, const uint
                     ue->measReportList[i][j]->numberOfReportsSent = 0;
                     rrc_ue_generate_MeasurementReport(
                       ctxt_pP,
-                      current_enb);
+                      current_enb); //Alex
                     ue->HandoverInfoUe.measFlag = 1;
                   } else {
                     if(ue->measReportList[i][j] != NULL) {
@@ -4765,6 +4765,7 @@ uint8_t check_trigger_meas_event(
       }
 
       if (UE_rrc_inst->measTimer[ue_cnx_index][meas_index][tmp_offset] >= ttt) {
+        //Alex
         UE_rrc_inst->HandoverInfoUe.targetCellId = eNB_offset; //WARNING!!!...check this!
         LOG_D(RRC,"[UE %d] Frame %d eNB %d: Handover triggered: targetCellId: %ld currentCellId: %d eNB_offset: %d rsrp source: %3.1f rsrp target: %3.1f\n",
               ue_mod_idP, frameP, eNB_index,
@@ -6563,8 +6564,9 @@ rrc_rx_tx_ue(
     LOG_I(RRC,"[UE %d] Frame %d : RRC handover initiated\n", ctxt_pP->module_id, ctxt_pP->frame);
   }
   LOG_I(RRC,"Alex we are to get inside the if the if current_enb %d, target_eNB_index %d\n", current_enb, target_eNB_index);
-  if((UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State == RRC_HO_EXECUTION)   &&
+  if((UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State == RRC_HO_EXECUTION)   && //Alex
       (UE_rrc_inst[ctxt_pP->module_id].HandoverInfoUe.targetCellId != 0xFF)) {
+        //Alex
     LOG_I(RRC,"Alex we are in the if current_enb %d, target_eNB_index %d\n", current_enb, target_eNB_index);
     UE_rrc_inst[ctxt_pP->module_id].Info[current_enb].State= RRC_IDLE;
     current_enb = target_eNB_index;
