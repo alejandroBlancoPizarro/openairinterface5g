@@ -7762,11 +7762,11 @@ rrc_eNB_decode_dcch(
                 break;
               }
 
-              //flexran_agent_handover = 1;
-              //RC.rrc[ctxt_pP->module_id]->Nb_ue++;
-              //dedicated_DRB = 3;
-              //RC.mac[ctxt_pP->module_id]->UE_info.UE_sched_ctrl[UE_id].crnti_reconfigurationcomplete_flag = 0;
-              //ue_context_p->ue_context.StatusRrc = RRC_RECONFIGURED;
+              flexran_agent_handover = 1;
+              RC.rrc[ctxt_pP->module_id]->Nb_ue++;
+              dedicated_DRB = 3;
+              RC.mac[ctxt_pP->module_id]->UE_info.UE_sched_ctrl[UE_id].crnti_reconfigurationcomplete_flag = 0;
+              ue_context_p->ue_context.StatusRrc = RRC_RECONFIGURED;
 
               if(ue_context_p->ue_context.handover_info) {
                 //ue_context_p->ue_context.handover_info->state = HO_CONFIGURED;
