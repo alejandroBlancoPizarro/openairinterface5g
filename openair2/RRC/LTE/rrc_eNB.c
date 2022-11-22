@@ -7827,16 +7827,11 @@ rrc_eNB_decode_dcch(
                   PROTOCOL_RRC_CTXT_UE_FMT" UE State = RRC_RECONFIGURED (dedicated DRB, xid %ld)\n",
                   PROTOCOL_RRC_CTXT_UE_ARGS(ctxt_pP),ul_dcch_msg->message.choice.c1.choice.rrcConnectionReconfigurationComplete.rrc_TransactionIdentifier);
           }
-          if (ue_context_p->ue_context.handover_info->state == HO_CONFIGURED){
-            ue_context_p->ue_context.handover_info->state = HO_CONFIGURED;
-          }
-          else{
-            rrc_eNB_process_RRCConnectionReconfigurationComplete(
-              ctxt_pP,
-              ue_context_p,
-              ul_dcch_msg->message.choice.c1.choice.rrcConnectionReconfigurationComplete.rrc_TransactionIdentifier);
 
-          }
+          rrc_eNB_process_RRCConnectionReconfigurationComplete(
+            ctxt_pP,
+            ue_context_p,
+            ul_dcch_msg->message.choice.c1.choice.rrcConnectionReconfigurationComplete.rrc_TransactionIdentifier);
 
           //WARNING:Inform the controller about the UE activation. Should be moved to RRC agent in the future
           if (flexran_agent_get_rrc_xface(ctxt_pP->module_id)) {
