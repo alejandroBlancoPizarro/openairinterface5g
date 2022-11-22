@@ -108,7 +108,7 @@ extern UE_MAC_INST                 *UE_mac_inst;
 
 
 mui_t                               rrc_eNB_mui = 0;
-int alex = 0;
+
 extern uint32_t to_earfcn_DL(int eutra_bandP, uint32_t dl_CarrierFreq, uint32_t bw);
 extern int rrc_eNB_process_security(const protocol_ctxt_t *const ctxt_pP, rrc_eNB_ue_context_t *const ue_context_pP, security_capabilities_t *security_capabilities_pP);
 extern void process_eNB_security_key (const protocol_ctxt_t *const ctxt_pP, rrc_eNB_ue_context_t *const ue_context_pP, uint8_t *security_key_pP);
@@ -7770,7 +7770,6 @@ rrc_eNB_decode_dcch(
 
               if(ue_context_p->ue_context.handover_info) {
                 ue_context_p->ue_context.handover_info->state = HO_CONFIGURED;
-                alex = 1;
                 LOG_A(RRC, "Received HO LTE_RRCConnectionReconfigurationComplete UE rnti 0x%x ue_context.StatusRrc %u (4: RRC_RECONFIGURED) handover_info->state %d (8: HO_CONFIGURED)\n", 
                           ctxt_pP->rnti, 
                           ue_context_p->ue_context.StatusRrc,
@@ -7828,15 +7827,12 @@ rrc_eNB_decode_dcch(
                   PROTOCOL_RRC_CTXT_UE_FMT" UE State = RRC_RECONFIGURED (dedicated DRB, xid %ld)\n",
                   PROTOCOL_RRC_CTXT_UE_ARGS(ctxt_pP),ul_dcch_msg->message.choice.c1.choice.rrcConnectionReconfigurationComplete.rrc_TransactionIdentifier);
           }
-          if (alex == 1){
-            alex = 1;
-          }
-          else{
-            rrc_eNB_process_RRCConnectionReconfigurationComplete(
+
+          rrc_eNB_process_RRCConnectionReconfigurationComplete(
             ctxt_pP,
             ue_context_p,
             ul_dcch_msg->message.choice.c1.choice.rrcConnectionReconfigurationComplete.rrc_TransactionIdentifier);
-          }
+
           //WARNING:Inform the controller about the UE activation. Should be moved to RRC agent in the future
           if (flexran_agent_get_rrc_xface(ctxt_pP->module_id)) {
             flexran_agent_get_rrc_xface(ctxt_pP->module_id)->flexran_agent_notify_ue_state_change(ctxt_pP->module_id,
