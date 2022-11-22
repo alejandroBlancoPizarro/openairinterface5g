@@ -7762,14 +7762,14 @@ rrc_eNB_decode_dcch(
                 break;
               }
 
-              flexran_agent_handover = 1;
-              RC.rrc[ctxt_pP->module_id]->Nb_ue++;
-              dedicated_DRB = 3;
-              RC.mac[ctxt_pP->module_id]->UE_info.UE_sched_ctrl[UE_id].crnti_reconfigurationcomplete_flag = 0;
-              ue_context_p->ue_context.StatusRrc = RRC_RECONFIGURED;
+              //flexran_agent_handover = 1;
+              //RC.rrc[ctxt_pP->module_id]->Nb_ue++;
+              //dedicated_DRB = 3;
+              //RC.mac[ctxt_pP->module_id]->UE_info.UE_sched_ctrl[UE_id].crnti_reconfigurationcomplete_flag = 0;
+              //ue_context_p->ue_context.StatusRrc = RRC_RECONFIGURED;
 
               if(ue_context_p->ue_context.handover_info) {
-                ue_context_p->ue_context.handover_info->state = HO_CONFIGURED;
+                //ue_context_p->ue_context.handover_info->state = HO_CONFIGURED;
                 LOG_A(RRC, "Received HO LTE_RRCConnectionReconfigurationComplete UE rnti 0x%x ue_context.StatusRrc %u (4: RRC_RECONFIGURED) handover_info->state %d (8: HO_CONFIGURED)\n", 
                           ctxt_pP->rnti, 
                           ue_context_p->ue_context.StatusRrc,
@@ -9269,7 +9269,7 @@ void *rrc_enb_process_itti_msg(void *notUsed) {
 
     case S1AP_PATH_SWITCH_REQ_ACK:
       LOG_I(RRC, "[eNB %ld] received path switch ack %s\n", instance, msg_name_p);
-      //rrc_eNB_process_S1AP_PATH_SWITCH_REQ_ACK(msg_p, msg_name_p, instance);
+      rrc_eNB_process_S1AP_PATH_SWITCH_REQ_ACK(msg_p, msg_name_p, instance);
       break;
 
     case X2AP_SETUP_REQ:
