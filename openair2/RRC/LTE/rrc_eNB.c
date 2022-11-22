@@ -7769,7 +7769,7 @@ rrc_eNB_decode_dcch(
               ue_context_p->ue_context.StatusRrc = RRC_RECONFIGURED;
 
               if(ue_context_p->ue_context.handover_info) {
-                //ue_context_p->ue_context.handover_info->state = HO_CONFIGURED;
+                ue_context_p->ue_context.handover_info->state = HO_CONFIGURED;
                 LOG_A(RRC, "Received HO LTE_RRCConnectionReconfigurationComplete UE rnti 0x%x ue_context.StatusRrc %u (4: RRC_RECONFIGURED) handover_info->state %d (8: HO_CONFIGURED)\n", 
                           ctxt_pP->rnti, 
                           ue_context_p->ue_context.StatusRrc,
@@ -7827,12 +7827,15 @@ rrc_eNB_decode_dcch(
                   PROTOCOL_RRC_CTXT_UE_FMT" UE State = RRC_RECONFIGURED (dedicated DRB, xid %ld)\n",
                   PROTOCOL_RRC_CTXT_UE_ARGS(ctxt_pP),ul_dcch_msg->message.choice.c1.choice.rrcConnectionReconfigurationComplete.rrc_TransactionIdentifier);
           }
-
-          rrc_eNB_process_RRCConnectionReconfigurationComplete(
+          if (ue_context_p->ue_context.handover_info->state == HO_CONFIGURED){
+            ue_context_p->ue_context.handover_info->state = HO_CONFIGURED;
+          }
+          else{
+            rrc_eNB_process_RRCConnectionReconfigurationComplete(
             ctxt_pP,
             ue_context_p,
             ul_dcch_msg->message.choice.c1.choice.rrcConnectionReconfigurationComplete.rrc_TransactionIdentifier);
-
+          }
           //WARNING:Inform the controller about the UE activation. Should be moved to RRC agent in the future
           if (flexran_agent_get_rrc_xface(ctxt_pP->module_id)) {
             flexran_agent_get_rrc_xface(ctxt_pP->module_id)->flexran_agent_notify_ue_state_change(ctxt_pP->module_id,
