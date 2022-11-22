@@ -1227,7 +1227,7 @@ check_Msg4_retransmission(module_id_t module_idP, int CC_idP,
     DevAssert(UE_id != -1);
     mac->UE_info.UE_template[UE_PCCID(module_idP, UE_id)][UE_id].configured = true;
     mac->UE_info.UE_template[UE_PCCID(module_idP, UE_id)][UE_id].pusch_repetition_levels=ra->pusch_repetition_levels;
-    //cancel_ra_proc(module_idP, CC_idP, frameP, ra->rnti);
+    cancel_ra_proc(module_idP, CC_idP, frameP, ra->rnti);
   }
 }
 
