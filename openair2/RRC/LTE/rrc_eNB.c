@@ -9269,7 +9269,7 @@ void *rrc_enb_process_itti_msg(void *notUsed) {
 
     case S1AP_PATH_SWITCH_REQ_ACK:
       LOG_I(RRC, "[eNB %ld] received path switch ack %s\n", instance, msg_name_p);
-      rrc_eNB_process_S1AP_PATH_SWITCH_REQ_ACK(msg_p, msg_name_p, instance);
+      //rrc_eNB_process_S1AP_PATH_SWITCH_REQ_ACK(msg_p, msg_name_p, instance);
       break;
 
     case X2AP_SETUP_REQ:
